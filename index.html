@@ -31,8 +31,14 @@
         }
         else {
           FB.login(function(response) {
-            $('#alert-cancelled').show();
-        });
+            if (response.authResponse) {
+                auth();
+              });
+            }
+            else {
+              $('#alert-cancelled').show();
+            }
+          });
       }
     });
   }
